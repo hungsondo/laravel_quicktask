@@ -1,0 +1,23 @@
+{
+    "name":"Tên",
+    "category_crud":"CRUD danh mục",
+    "category_page":"Trang danh mục",
+    "action":"Hành động",
+    "show":"Xem",
+    "edit":"Sửa",
+    "delete":"Xóa",
+    "english":"Tiếng Anh",
+    "vietnamese":"Tiếng Việt",
+    "create_a_new_category":"Thêm mới danh mục",
+    "show_page":"Trang xem",
+    "edit_page":"Trang sửa",
+    "save":"Lưu",
+    "create_page":"Trang tạo mới",
+    "price":"Giá",
+    "category":"Danh mục",
+    "product": "Sản phẩm",
+    "img":"Ảnh",
+    "create_a_new_product":"Thêm mới sản phẩm",
+    "product_page":"Trang sản phẩm",
+    "confirm":"Xác nhận"
+}
