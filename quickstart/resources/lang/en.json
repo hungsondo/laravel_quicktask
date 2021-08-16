@@ -1,0 +1,23 @@
+{
+    "name":"Name",
+    "category_crud":"CATEGORY CRUD ",
+    "category_page":"CATEGORY PAGE",
+    "action":"Action",
+    "show":"Show",
+    "edit":"Edit",
+    "delete":"Delete",
+    "english":"English",
+    "vietnamese":"Vietnamese",
+    "create_a_new_category":"create a new category",
+    "show_page":"Show page",
+    "edit_page":"Edit page",
+    "save":"Save",
+    "create_page":"Create page",
+    "price":"Price",
+    "category":"Category",
+    "product": "Product",
+    "img":"Image",
+    "create_a_new_product":"Create a new product",
+    "product_page":"Product page",
+    "confirm":"Confirm"
+}

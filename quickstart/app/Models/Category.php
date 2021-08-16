@@ -20,4 +20,14 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    protected static function boot() 
+    {
+        parent::boot();
+        static::deleting(function($category) {
+            foreach ($category->products()->get() as $p) {
+                $p->delete();
+            }
+        });
+    }
 }
