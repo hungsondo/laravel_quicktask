@@ -19,5 +19,8 @@
     "img":"Image",
     "create_a_new_product":"Create a new product",
     "product_page":"Product page",
-    "confirm":"Confirm"
+    "confirm" : "Confirm",
+    "description" : "Description",
+    "home" : "Home",
+    "delete_confirm" : "Are you sure you want to delete this?"
 }
