@@ -19,5 +19,8 @@
     "img":"Ảnh",
     "create_a_new_product":"Thêm mới sản phẩm",
     "product_page":"Trang sản phẩm",
-    "confirm":"Xác nhận"
+    "confirm" : "Xác nhận",
+    "description" : "Mô tả",
+    "home" : "Trang chủ",
+    "delete_confirm" : "Bạn có chắc chắn muốn xóa không?"
 }
