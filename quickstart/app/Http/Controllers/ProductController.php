@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products =  Product::all();
+        $products =  Product::paginate(config('app.product_number'));
 
         return view(
             'product.index',
@@ -31,7 +31,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        $categories = Category::all();
+
+        return view('product.create', compact('categories'));
     }
 
     /**
@@ -45,12 +47,12 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required|int',
-            'category_id' => 'required|int',
+            'category_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:14096',
         ]);
 
         $input = $request->all();
-
+        $input["category_id"] = (int) $input["category_id"];
         if ($request->hasFile('image')){
             $file = $request->image;
             $filename = Str::slug($request->name, '-') . '.' . $file->getClientOriginalExtension();
@@ -61,7 +63,7 @@ class ProductController extends Controller
         }
         Product::create($input);
 
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -89,10 +91,11 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
+        $categories = Category::all();
 
         return view(
             'product.edit',
-            compact('product'),
+            compact('product', 'categories'),
         );
     }
 
@@ -110,7 +113,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required|int',
-            'category_id' => 'required|int',
+            'category_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:14096',
         ]);
         
@@ -125,7 +128,7 @@ class ProductController extends Controller
         }
         $product->update($input);
 
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -139,6 +142,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 }
