@@ -7,7 +7,7 @@
     </a>
     <div class="row mt-3">
         <div class="col-12">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr class="text-center">
                         <th scope="col" class="">#</th>
@@ -15,7 +15,7 @@
                         <th scope="col" class="">{{ __('img') }}</th>
                         <th scope="col" class="">{{ __('price') }}</th>
                         <th scope="col" class="">{{ __('category') }}</th>
-                        <th scope="col" class="">{{ __('action') }}</th>
+                        <th scope="col" class="" colspan = 3>{{ __('action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,13 +26,17 @@
                             <td><img src="{{ asset('storage/' . $prod->img) }}" alt="No Image" width="100px" class="thumbnail"></td>
                             <td>{{ $prod->price }}</td>
                             <td>{{ $prod->category->name }}</td>
-                            <td class="d-flex align-items-center justify-content-around">
+                            <td class="align-items-center justify-content-around">
                                 <a href="{{ route('products.show', $prod->id) }}" class="btn btn-success" role="button" >
                                     {{ __('show') }}
                                 </a>
+                            </td>    
+                            <td class="align-items-center justify-content-around">
                                 <a href="{{ route('products.edit', $prod->id) }}" class="btn btn-warning" role="button" >
                                     {{ __('edit') }}
                                 </a>
+                            </td>
+                            <td class="align-items-center justify-content-around"> 
                                 <form action="{{ route('products.destroy', $prod->id) }}" method="post"
                                     onsubmit="return confirm(' {{ __('delete_confirm') }} ')">
                                     @csrf
