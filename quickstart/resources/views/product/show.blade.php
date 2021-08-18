@@ -7,7 +7,7 @@
     </a>
     <div class="row mt-3">
         <div class="col-12">
-            <table class="table table-hover table-bordered">
+            <table class="table">
                 <thead class="thead-dark">
                     <tr class="text-center">
                         <th scope="col" class="">#</th>
@@ -15,7 +15,7 @@
                         <th scope="col" class="">{{ __('img') }}</th>
                         <th scope="col" class="">{{ __('price') }}</th>
                         <th scope="col" class="">{{ __('category') }}</th>
-                        <th scope="col" class="">{{ __('action') }}</th>
+                        <th scope="col" class="" colspan = 2>{{ __('action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
