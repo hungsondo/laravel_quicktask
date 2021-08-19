@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Str;
+use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -42,15 +44,8 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|int',
-            'category_id' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:14096',
-        ]);
-
         $input = $request->all();
         $input["category_id"] = (int) $input["category_id"];
         if ($request->hasFile('image')){
@@ -106,17 +101,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         $product = Product::findOrFail($id);
-
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|int',
-            'category_id' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:14096',
-        ]);
-        
         $input = $request->all();
         if ($request->hasFile('image')){
             $file = $request->image;
