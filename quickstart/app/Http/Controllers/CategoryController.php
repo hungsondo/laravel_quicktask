@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Notifications\NewCategoryNotify;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Notification;
 
 class CategoryController extends Controller
 {
@@ -44,6 +47,10 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         Category::create($request->all());
+
+        $users = User::select('email')->get();
+
+        Notification::send($users, new NewCategoryNotify());
 
         return redirect()->route('categories.index');
     }
