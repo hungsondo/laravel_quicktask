@@ -11,9 +11,21 @@ use App\Models\Product;
 class Category extends Model
 {
     use SoftDeletes;
+
+    protected $guarded = [
+        // 'name',
+        'desc',
+    ];
+
     protected $fillable = [
         'name',
         'desc',
+    ];
+
+    protected $hidden = [
+        'deleted_at',
+        'created_at',
+        'updated_at',
     ];
 
     public function products()
@@ -44,6 +56,6 @@ class Category extends Model
     // recursive, load all children
     public function subCategories()
     {
-        return $this->children->with('subCategories');
+        return $this->children()->with('subCategories');
     }
 }

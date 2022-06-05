@@ -118,11 +118,8 @@ class CategoryController extends Controller
 
     public function getSubCategories($id)
     {
-        $category = Category::findOrFail($id)->subCategories();
+        $category = Category::with('subCategories')->findOrFail($id);
 
-        return response()->json([
-            'cate' => $category,
-            // 'children' => $category->subCategories(),
-        ]);
+        return response()->json($category);
     }
 }

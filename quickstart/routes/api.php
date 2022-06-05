@@ -24,5 +24,5 @@ Route::post('login', 'UserController@login');
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('user-info', 'UserController@getUserInfo');
 });
-Route::get('categories/{id}', [CategoryController::class, 'getSubCategories']);
+Route::get('category/{id}', [CategoryController::class, 'getSubCategories']);
 
