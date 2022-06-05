@@ -115,4 +115,11 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.index');
     }
+
+    public function getSubCategories($id)
+    {
+        $category = Category::with('subCategories')->findOrFail($id);
+
+        return response()->json($category);
+    }
 }
