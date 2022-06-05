@@ -16,9 +16,12 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->delete();
         DB::table('categories')->insert([
-            ['id'=>1, 'name'=> 'Điện thoại', 'desc'=>"desc"],
-            ['id'=>2, 'name'=>'Laptop', 'desc'=>"desc"],
-            ['id'=>3, 'name'=>'PC', 'desc'=>"desc"],
+            ['id'=>1, 'name'=> 'Điện thoại', 'desc'=>"desc", 'parent_id'=>null],
+            ['id'=>2, 'name'=>'Laptop', 'desc'=>"desc", 'parent_id'=>null],
+            ['id'=>3, 'name'=>'PC', 'desc'=>"desc", 'parent_id'=>null],
+            ['id'=>4, 'name'=>'PC dell', 'desc'=>"desc", 'parent_id'=>3],
+            ['id'=>5, 'name'=>'PC asus', 'desc'=>"desc", 'parent_id'=>3],
+            ['id'=>6, 'name'=>'PC acer', 'desc'=>"desc", 'parent_id'=>3],
         ]);
     }
 }
